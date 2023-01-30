@@ -1,18 +1,20 @@
 body {
-    background-color: rgb(215, 215, 215);
-    height: 1000px;
-    padding: 10px;
+    margin: 0;
+    background-color: rgb(208, 208, 208);
+    background-repeat: no-repeat;
+    background-image: url(background.webp);
+    background-size: cover;
+}
+
+p {
+    font-family: Roboto;
 }
 
 .header {
-    background-color: lightblue;
+    background-color: rgb(175, 175, 175);
     height: 100px;
-}
-
-.potion-panel-structure {
-    display: flex;
-    flex-direction: column;
-    vertical-align: middle;
+    margin: 0;
+    box-shadow: 0 30px 40px rgba(175, 175, 175, 1);
 }
 
 .potion-panel-container {
@@ -21,15 +23,55 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    margin-top: 40px;
 }
 
 .potion-panel {
-    height: 250px;
-    width: 100px;
+    display: grid;
+    justify-content: center;
+    grid-template-rows: 40px 120px 20px 70px;
+    height: 300px;
+    width: 125px;
     min-width: 200px;
     background-color: rgb(151, 151, 151);
-    box-shadow: 0px 0px 10px black;
+    box-shadow: 0px 0px 20px rgb(0, 0, 0);
+    transition: box-shadow 0.25s;
     border-radius: 50px;
+}
+
+.potion-panel:hover {
+    box-shadow: 0px 5px 5px rgb(0, 0, 0);
+    cursor: pointer;
+}
+
+.potion-name {
+    font-weight: 700;
+    font-size: 18px;
+    border-color: white;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+.potion-image {
+    width: 120px;
+    height: 120px;
+
+}
+
+.potion-berries-text {
+    font-weight: 500;
+    padding-left: 5px;
+    margin: 0;
+}
+
+.potion-description {
+    font-weight: 300;
+    display: inline;
+    font-family: Roboto;
+    font-size: 12px;
+    display: block;
+    margin: 0;
+    max-width: 125px;
 }
 
 .reset-button {
@@ -51,5 +93,4 @@ body {
 .reset-button:hover {
     cursor: pointer;
     box-shadow: 0px 0px 10px black;
-
 }
