@@ -1,0 +1,55 @@
+body {
+    background-color: rgb(215, 215, 215);
+    height: 1000px;
+    padding: 10px;
+}
+
+.header {
+    background-color: lightblue;
+    height: 100px;
+}
+
+.potion-panel-structure {
+    display: flex;
+    flex-direction: column;
+    vertical-align: middle;
+}
+
+.potion-panel-container {
+    display: flex;
+    height: 275px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.potion-panel {
+    height: 250px;
+    width: 100px;
+    min-width: 200px;
+    background-color: rgb(151, 151, 151);
+    box-shadow: 0px 0px 10px black;
+    border-radius: 50px;
+}
+
+.reset-button {
+    position: fixed;
+    font-family: Roboto;
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    background-color: rgb(87, 207, 247);
+    border: 0;
+    box-shadow: 0px 0px 5px black;
+    transition: box-shadow 0.5s;
+    bottom: 50px;
+    left: 85%;
+    width: 150px;
+    height: 60px;
+    border-radius: 20px;
+}
+
+.reset-button:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 10px black;
+
+}
