@@ -1,17 +1,18 @@
 body {
-    margin: 0;
     background-color: rgb(208, 208, 208);
     background-repeat: no-repeat;
     background-image: url(background.webp);
     background-size: cover;
+    margin: 0;
 }
 
 p {
     font-family: Roboto, Arial;
 }
 
-icon {
-    height: 2px;
+.icon {
+    height: 14px;
+    display: inline-block;
 }
 
 .header {
@@ -58,32 +59,35 @@ icon {
 
 .potion-name {
     font-weight: 700;
-    font-size: 18px;
+    font-size: 15px;
     border-color: white;
     margin-top: 5px;
     margin-bottom: 0;
+    text-align: center;
 }
 
 .potion-image {
     width: 120px;
     height: 120px;
-
+    padding-left: 25px;
 }
 
 .potion-berries-text {
     font-weight: 500;
     padding-left: 5px;
     margin: 0;
+    text-align: center;
 }
 
 .potion-description {
     font-weight: 300;
     display: inline;
     font-family: Roboto;
-    font-size: 12px;
+    font-size: 14px;
     display: block;
     margin: 0;
-    max-width: 130px;
+    max-width: 170px;
+    text-align: center;
 }
 
 .reset-button {
@@ -105,4 +109,36 @@ icon {
 .reset-button:hover {
     cursor: pointer;
     box-shadow: 0px 0px 10px black;
+}
+
+.luck-text {
+    color: rgb(54,207,68);
+}
+
+.hp-text {
+    color: rgb(231, 76, 60);
+}
+
+.max-hp-text {
+    color: rgb(255, 162, 162);
+}
+
+.walkspeed-text {
+    color: rgb(83, 255, 99);
+}
+
+.jumppower-text {
+    color: rgb(159, 124, 255);
+}
+
+.defense-text {
+    color: rgb(93, 173, 226);
+}
+
+.strength-text {
+    color: rgb(247, 220, 111);  
+}
+
+.circuits-text {
+    color: rgb(71, 186, 71);
 }
