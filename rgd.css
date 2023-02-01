@@ -1,8 +1,6 @@
 body {
     background-color: rgb(208, 208, 208);
-    background-repeat: no-repeat;
-    background-image: url(background.webp);
-    background-size: cover;
+    height: 1200px;
     margin: 0;
 }
 
@@ -54,7 +52,6 @@ p {
 
 .potion-panel:hover {
     box-shadow: 0px 5px 5px rgb(0, 0, 0);
-    cursor: pointer;
 }
 
 .potion-name {
@@ -90,25 +87,52 @@ p {
     text-align: center;
 }
 
-.reset-button {
+.footer {
     position: fixed;
-    font-family: Roboto;
-    color: rgb(255, 255, 255);
-    font-weight: 500;
-    background-color: rgb(87, 207, 247);
-    border: 0;
-    box-shadow: 0px 0px 5px black;
-    transition: box-shadow 0.5s;
-    bottom: 50px;
-    left: 85%;
-    width: 150px;
-    height: 60px;
-    border-radius: 20px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(175, 175, 175);
+    border-top: black;
+    border-top-width: 1px;
+    border-top-style: solid;
 }
 
-.reset-button:hover {
+.berry-button {
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 0;
+    height: 100px;
+    width: 100px;
+    border-width: 0;
+    border-radius: 20px;
+    background-color: rgb(233, 233, 233);
+    transition: background-color 0.25s;
+}
+
+.berry-image {
+    display: inline-block;
+    padding: 0;
+    height: 80px;
+    margin: 0;
+}
+
+.berry-text {
+    display: block;
+    font-weight: 500;
+    margin: 0;
+    font-size: 12px;
+    color: black;
+}
+
+.berry-button:hover {
     cursor: pointer;
-    box-shadow: 0px 0px 10px black;
+    background-color: yellow;
+    
 }
 
 .luck-text {
