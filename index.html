@@ -15,7 +15,7 @@
 			<p class="header-text">Randomly Generated Droids Potion Calculator</p>
 		</div>
 		<div class="potion-panel-container">
-			<div class="potion-panel">
+			<div id="warping" class="potion-panel">
 				<p class="potion-name">
 					Potion of Warping
 				</p>
@@ -27,7 +27,7 @@
 				</p>
 				<p class="potion-description">Warp backwards one world.</p>
 			</div>
-			<div class="potion-panel">
+			<div id="resistance" class="potion-panel">
 				<p class="potion-name">
 					Potion of Resistance
 				</p>
@@ -39,7 +39,7 @@
 				</p>
 				<p class="potion-description">Gain <img class="icon" src="icons/Defense.png"> <strong class="defense-text">1</strong> if you have no <img class="icon" src="icons/Defense.png"> <strong class="defense-text">Defense</strong>. Then, gain 2.</p>
 			</div>
-			<div class="potion-panel">
+			<div id="brawn" class="potion-panel">
 				<p class="potion-name">
 					Potion of Brawn
 				</p>
@@ -51,7 +51,7 @@
 				</p>
 				<p class="potion-description">Gain <img class="icon" src="icons/Strength.png"> <strong class="strength-text">Strength</strong> equal to triple the World # when used.</p>
 			</div>
-			<div class="potion-panel">
+			<div id="affluence" class="potion-panel">
 				<p class="potion-name">
 					Potion of Affluence
 				</p>
@@ -63,7 +63,7 @@
 				</p>
 				<p class="potion-description">Gain <img class="icon" src="icons/Circuits.png"> <strong class="circuits-text">Circuits</strong> equal to the Room #. Cannot be used in the room which you acquired it.</p>
 			</div>
-			<div class="potion-panel">
+			<div id="jumping" class="potion-panel">
 				<p class="potion-name">
 					Potion of Jumping
 				</p>
@@ -77,7 +77,7 @@
 			</div>
 		</div>
 		<div class="potion-panel-container">
-			<div class="potion-panel">
+			<div id="luck" class="potion-panel">
 				<p class="potion-name">
 					Potion of Luck
 				</p>
@@ -89,7 +89,7 @@
 				</p>
 				<p class="potion-description">	Gain <img class="icon" src="icons/LuckStat.png"> <strong class="luck-text">5</strong> and reroll all Droids.</p>
 			</div>
-			<div class="potion-panel">
+			<div id="healing" class="potion-panel">
 				<p class="potion-name">
 					Potion of Healing
 				</p>
@@ -101,7 +101,7 @@
 				</p>
 				<p class="potion-description">	Heal <img class="icon" src="icons/HP.png"> <strong class="hp-text">HP</strong> HP equal to 10 × World #.</p>
 			</div>
-			<div class="potion-panel">
+			<div id="protection" class="potion-panel">
 				<p class="potion-name">
 					Potion of Protection
 				</p>
@@ -113,7 +113,7 @@
 				</p>
 				<p class="potion-description">Gain Max <img class="icon" src="icons/Max_HP.png"> <strong class="max-hp-text">Max HP</strong> equal to 10 × World #.</p>
 			</div>
-			<div class="potion-panel">
+			<div id="regeneration" class="potion-panel">
 				<p class="potion-name">
 					Potion of Regeneration
 				</p>
@@ -125,7 +125,7 @@
 				</p>
 				<p class="potion-description">Regenerate <img class="icon" src="icons/HP.png"> <strong class="hp-text">HP</strong> equal to the Room #.</p>
 			</div>
-			<div class="potion-panel">
+			<div id="stats-up" class="potion-panel">
 				<p class="potion-name">
 					Potion of Stats Up
 				</p>
@@ -138,7 +138,7 @@
 				<p class="potion-description">Boost your stats when consumed, then randomly gain <img class="icon" src="icons/Walkspeed.png"> <strong class="walkspeed-text">1</strong> or <img src="icons/JumpPower.png"> <strong class="jumppower-text">5</strong>.
 				</p>
 			</div>
-			<div class="potion-panel">
+			<div id="swiftness" class="potion-panel">
 				<p class="potion-name">
 					Potion of Swiftness
 				</p>
@@ -151,7 +151,7 @@
 				<p class="potion-description">Gain <img class="icon" src="icons/Walkspeed.png"> <strong class="walkspeed-text">3</strong></p>
 			</div>
 		</div>
-			<div class="potion-panel-container">
+			<div id="chance" class="potion-panel-container">
 				<div class="potion-panel">
 					<p class="potion-name">
 						Potion of Chance
@@ -164,7 +164,7 @@
 					</p>
 					<p class="potion-description">Gain the effect of a random potion. Then, heal <img src="icons/HP.png"> <strong class="hp-text">25</strong>.</p>
 				</div>
-				<div class="potion-panel">
+				<div id="sustaining" class="potion-panel">
 					<p class="potion-name">
 						Potion of Sustaining
 					</p>
@@ -176,7 +176,7 @@
 					</p>
 					<p class="potion-description">Halve <img class="icon" src="icons/Max_HP.png"> <strong class="max-hp-text">Max HP</strong> and restore <img class="icon" src="icons/Max_HP.png"> <strong class="max-hp-text">Max HP</strong> equal to current <img class="icon" src="icons/HP.png"> <strong class="hp-text">HP</strong>, then restore <img class="icon" src="icons/HP.png"> <strong class="hp-text">100</strong>.</p>
 				</div>
-				<div class="potion-panel">
+				<div id="ice-resistance" class="potion-panel">
 					<p class="potion-name">
 						Potion of Ice Resistance
 					</p>
@@ -188,7 +188,7 @@
 					</p>
 					<p class="potion-description">Gain immunity to water hazards, freezing, and icicles. Lasts for thirty rooms.</p>
 				</div>
-				<div class="potion-panel">
+				<div id="fire-resistance" class="potion-panel">
 					<p class="potion-name">
 						Potion of Fire Resistance
 					</p>
@@ -200,7 +200,7 @@
 					</p>
 					<p class="potion-description">Gain immunity to fire hazards and taking burn damage. Lasts for thirty rooms.</p>
 				</div>
-				<div class="potion-panel">
+				<div id="balance" class="potion-panel">
 					<p class="potion-name">
 						Potion of Balance
 					</p>
@@ -214,15 +214,15 @@
 				</div>
 			</div>
 		<div class="footer">
-			<button class="berry-button">
+			<button id="abate" class="berry-button">
 				<img class="berry-image" src="berry-images/berries0.webp">
 				<p class="berry-text">Abate</p>
 			</button>
-			<button class="berry-button">
+			<button id="accrue" class="berry-button">
 				<img class="berry-image" src="berry-images/berries0.webp">
 				<p class="berry-text">Accrue</p>
 			</button>
-			<button class="berry-button">
+			<button id="algid" class="berry-button">
 				<img class="berry-image" src="berry-images/berries0.webp">
 				<p class="berry-text">Algid</p>
 			<button class="berry-button">
@@ -230,51 +230,51 @@
 				<p class="berry-text">Ardor</p>
 			</button>
 			</button>
-			<button class="berry-button">
+			<button id="cavort" class="berry-button">
 				<img class="berry-image" src="berry-images/berries0.webp">
 				<p class="berry-text">Cavort</p>
 			</button>
-			<button class="berry-button">
+			<button id="fervor" class="berry-button">
 				<img class="berry-image" src="berry-images/berries0.webp">
 				<p class="berry-text">Fervor</p>
 			</button>
-			<button class="berry-button">
+			<button id="gambol" class="berry-button">
 				<img class="berry-image" src="berry-images/berries0.webp">
 				<p class="berry-text">Gambol</p>
 			</button>
-			<button class="berry-button">
+			<button id="ichor" class="berry-button">
 				<img class="berry-image" src="berry-images/berries0.webp">
 				<p class="berry-text">Ichor</p>
 			</button>
-			<button class="berry-button">
+			<button id="lucre" class="berry-button">
 				<img class="berry-image" src="berry-images/berries0.webp">
 				<p class="berry-text">Lucre</p>
 			</button>
-			<button class="berry-button">
+			<button id="luminous" class="berry-button">
 				<img class="berry-image" src="berry-images/berries0.webp">
 				<p class="berry-text">Luminous</p>
 			</button>
-			<button class="berry-button">
+			<button id="skew" class="berry-button">
 				<img class="berry-image" src="berry-images/berries0.webp">
 				<p class="berry-text">Skew</p>
 			</button>
-			<button class="berry-button">
+			<button id="tenebrous" class="berry-button">
 				<img class="berry-image" src="berry-images/berries0.webp">
 				<p class="berry-text">Tenebrous</p>
 			</button>
-			<button class="berry-button">
+			<button id="theriac" class="berry-button">
 				<img class="berry-image" src="berry-images/berries0.webp">
 				<p class="berry-text">Theriac</p>
 			</button>
-			<button class="berry-button">
+			<button id="torrid" class="berry-button">
 				<img class="berry-image" src="berry-images/berries0.webp">
 				<p class="berry-text">Torrid</p>
 			</button>
-			<button class="berry-button">
+			<button id="vigor" class="berry-button">
 				<img class="berry-image" src="berry-images/berries0.webp">
 				<p class="berry-text">Vigor</p>
 			</button>
-			<button class="berry-button">
+			<button id="virulent" class="berry-button">
 				<img class="berry-image" src="berry-images/berries0.webp">
 				<p class="berry-text">Virulent</p>
 			</button>
