@@ -1,3 +1,7 @@
+/*Don't judge me for this code, it is hands down the worst code I have ever written but it was my first script using js and I was lazy*/
+/*I'll improve it later by making a new script that uses a map of all panel and button elements to traverse and 
+make a generalized function for changing element colors instead of this abomination*/
+
 'use strict';
 
 let clickedBerries = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -38,6 +42,7 @@ window.addEventListener('load', function() {
     let torrid = document.getElementById('torrid');
     let vigor = document.getElementById('vigor');
     let virulent = document.getElementById('virulent');
+
 
     abate.onmouseover = function() {
         warping.style.background = 'yellow';
@@ -198,6 +203,16 @@ window.addEventListener('load', function() {
         affluence.style.background = "rgb(131, 131, 131)";
         regeneration.style.background = "rgb(131, 131, 131)";
     }
-})
 
-console.log('test');
+    abate.onclick = function() {
+        if (clickedBerries[0]) {
+            clickedBerries[0] = 0;
+            abate.style.background = "rgb(233, 233, 233)";
+        }
+        else {
+            clickedBerries[0] = 1;
+            abate.style.background = 'lightgreen';
+        }
+
+    }
+})
