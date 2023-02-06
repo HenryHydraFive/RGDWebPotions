@@ -18,8 +18,8 @@ window.addEventListener('load', function() {
     berry_lightups.forEach((value, key) => {
         let berry_elem = document.getElementById(key);
         console.log(berry_elem);
-        berry_elem.onmouseover = panel_lightup(value, "yellow");
-        berry_elem.onmouseleave = panel_lightup(value, "rgb(131, 131, 131)");
+        berry_elem.onmouseover = function () {panel_lightup(value, "yellow")};
+        berry_elem.onmouseleave = function () {panel_lightup(value, "rgb(131, 131, 131)")};
     })
     function panel_lightup(panels, color) {
         console.log(panels);
