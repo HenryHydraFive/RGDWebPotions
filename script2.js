@@ -34,17 +34,33 @@ window.addEventListener('load', function() {
     })
     function panel_lightup(panels, color) {
         console.log(panels);
-        panels[0].style.background = color;
-        panels[1].style.background = color;
+        for(let panel of panels){
+            // Check if panel has been clicked and if not, change background color
+            let obj = potion_panel_objs.find(obj => obj.panel === panel);
+            if(!obj.clicked){
+                panel.style.background = color;
+            }
+        }
     }
 
     function berry_click(berry_button, potion_panel_objs) {
-        if (berry_button.style.background == "rgb(233, 233, 233)") berry_button.style.background = "lightgreen";
-        else berry_button.style.background = "rgb(233, 233, 233)";
+        // If the button background isn't lightgreen, set it to lightgreen.
+        // Otherwise, set it to rgb(233, 233, 233).
+        if (berry_button.style.background != "lightgreen") {
+            berry_button.style.background = "lightgreen";
+        } else {
+            berry_button.style.background = "rgb(233, 233, 233)";
+        }
 
         for (let i = 0; i < potion_panel_objs.length; i++) {
-            if ((potion_panel_objs[i].berry1).style.background == "lightgreen" && (potion_panel_objs[i].berry2).style.background == "lightgreen") (potion_panel_objs[i].panel.style.background = "lightgreen");
-            else potion_panel_objs[i].panel.background = "rgb(131, 131, 131)";
+            if ((potion_panel_objs[i].berry1).style.background == "lightgreen" && (potion_panel_objs[i].berry2).style.background == "lightgreen") {
+                potion_panel_objs[i].panel.style.background = "lightgreen";
+                potion_panel_objs[i].clicked = true; // Mark panel as clicked
+            }
+            else {
+                potion_panel_objs[i].panel.style.background = "rgb(131, 131, 131)";
+                potion_panel_objs[i].clicked = false; // Mark panel as not clicked
+            }
         }
     }
 
