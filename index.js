@@ -1,218 +1,72 @@
-/*Don't judge me for this code, it is hands down the worst code I have ever written but it was my first script using js and I was lazy*/
-/*I'll improve it later by making a new script that uses a map of all panel and button elements to traverse and 
-make a generalized function for changing element colors instead of this abomination*/
-
-'use strict';
-
-let clickedBerries = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-
-let elems = [];
+'use strict'
 
 window.addEventListener('load', function() {
-    
-    let warping = document.getElementById('warping');
-    let resistance = document.getElementById('resistance');
-    let brawn = document.getElementById('brawn');
-    let affluence = document.getElementById('affluence');
-    let jumping = document.getElementById('jumping');
-    let luck = document.getElementById('luck');
-    let healing = document.getElementById('healing');
-    let protection = document.getElementById('protection');
-    let regeneration = document.getElementById('regeneration');
-    let stats_up = document.getElementById('stats-up');
-    let swiftness = document.getElementById('swiftness');
-    let chance = document.getElementById('chance');
-    let sustaining = document.getElementById('sustaining');
-    let ice_resistance = document.getElementById('ice-resistance');
-    let fire_resistance = document.getElementById('fire-resistance');
-    let balance = document.getElementById('balance');
-    let abate = document.getElementById('abate');
-    let accrue = document.getElementById('accrue');
-    let algid = document.getElementById('algid');
-    let ardor = document.getElementById('ardor');
-    let cavort = document.getElementById('cavort');
-    let gambol = document.getElementById('gambol');
-    let fervor = document.getElementById('fervor');
-    let ichor = document.getElementById('ichor');
-    let lucre = document.getElementById('lucre');
-    let luminous = document.getElementById('luminous');
-    let skew = document.getElementById('skew');
-    let tenebrous = document.getElementById('tenebrous');
-    let theriac = document.getElementById('theriac');
-    let torrid = document.getElementById('torrid');
-    let vigor = document.getElementById('vigor');
-    let virulent = document.getElementById('virulent');
+    var berry_buttons = document.getElementsByClassName('berry-button');
+    var potion_panels = document.getElementsByClassName('potion-panel');
+    var berry_lightups = new Map();
+    var potion_panel_objs = new Array();
+    var j, i;
 
+    /*Create the map keyed on berry names with potion panel values*/
+    for (i = 0; i < berry_buttons.length; i++) berry_lightups.set(berry_buttons[i].id, new Array());
 
-    abate.onmouseover = function() {
-        warping.style.background = 'yellow';
-        luck.style.background = 'yellow';
-    }
+    for (i = 0; i < potion_panels.length; i++) {
+        /*Grab an array of berry text for every potion panel*/
+        let berry_text = potion_panels[i].children[2].innerHTML.toLowerCase().split(" ");
+        for (j = 0; j < berry_text.length; j++) berry_text[j] = berry_text[j].replace(/[\r\n\t]/g, "");
+        /*Get the proper spots in the map for the potion panels*/
+        let b1 = berry_lightups.get(berry_text[0]);
+        let b2 = berry_lightups.get(berry_text[2]);
+        /*Create an object for keeping track of clicking*/
+        potion_panel_objs.push(new potion_panel_obj(potion_panels[i], berry_text[0], berry_text[2]));
+        /*Add the potion panel to the map values*/
+        b1.push(potion_panels[i]);
+        b2.push(potion_panels[i]);
+    }        
 
-    abate.onmouseleave = function() {
-        warping.style.background = "rgb(131, 131, 131)";
-        luck.style.background = "rgb(131, 131, 131)";
-    }
-    
-    accrue.onmouseover = function() {
-        luck.style.background = 'yellow';
-        healing.style.background = 'yellow';
-    }
-    
-    accrue.onmouseleave = function() {
-        luck.style.background = "rgb(131, 131, 131)";
-        healing.style.background = "rgb(131, 131, 131)";
-    }
-
-    algid.onmouseover = function() {
-        ice_resistance.style.background = 'yellow';
-        balance.style.background = 'yellow';
-    }
-
-    algid.onmouseleave = function() {
-        ice_resistance.style.background = "rgb(131, 131, 131)";
-        balance.style.background = "rgb(131, 131, 131)";
-    }
-
-    ardor.onmouseover = function() {
-        resistance.style.background = 'yellow';
-        protection.style.background = 'yellow';
-    }
-
-    ardor.onmouseleave = function() {
-        resistance.style.background = "rgb(131, 131, 131)";
-        protection.style.background = "rgb(131, 131, 131)";
-    }
-
-    cavort.onmouseover = function() {
-        jumping.style.background = 'yellow';
-        chance.style.background = 'yellow';
-    }
-
-    cavort.onmouseleave = function() {
-        jumping.style.background = "rgb(131, 131, 131)";
-        chance.style.background = "rgb(131, 131, 131)";
-    }
-
-    fervor.onmouseover = function() {
-        healing.style.background = 'yellow';
-        protection.style.background = 'yellow';
-    }
-
-    fervor.onmouseleave = function() {
-        healing.style.background = "rgb(131, 131, 131)";
-        protection.style.background = "rgb(131, 131, 131)";
-    }
-
-    gambol.onmouseover = function() {
-        stats_up.style.background = 'yellow';
-        swiftness.style.background = 'yellow';
-    }
-
-    gambol.onmouseleave = function() {
-        stats_up.style.background = "rgb(131, 131, 131)";
-        swiftness.style.background = "rgb(131, 131, 131)";
-    }
-
-    ichor.onmouseover = function() {
-        warping.style.background = 'yellow';
-        brawn.style.background = 'yellow';
-    }
-
-    ichor.onmouseleave = function() {
-        warping.style.background = "rgb(131, 131, 131)";
-        brawn.style.background = "rgb(131, 131, 131)";
-    }
-
-    lucre.onmouseover = function() {
-        affluence.style.background = 'yellow';
-        jumping.style.background = 'yellow';
-    }
-
-    lucre.onmouseleave = function() {
-        affluence.style.background = "rgb(131, 131, 131)";
-        jumping.style.background = "rgb(131, 131, 131)";
-    }
-
-    luminous.onmouseover = function() {
-        fire_resistance.style.background = 'yellow';
-        ice_resistance.style.background = 'yellow';
-    }
-
-    luminous.onmouseleave = function() {
-        fire_resistance.style.background = "rgb(131, 131, 131)";
-        ice_resistance.style.background = "rgb(131, 131, 131)";
-    }
-
-    skew.onmouseover = function() {
-        swiftness.style.background = 'yellow';
-        chance.style.background = 'yellow';
-    }
-
-    skew.onmouseleave = function() {
-        swiftness.style.background = "rgb(131, 131, 131)";
-        chance.style.background = "rgb(131, 131, 131)";
-    }
-
-    tenebrous.onmouseover = function() {
-        stats_up.style.background = 'yellow';
-        sustaining.style.background = 'yellow';
-    }
-
-    tenebrous.onmouseleave = function() {
-        stats_up.style.background = "rgb(131, 131, 131)";
-        sustaining.style.background = "rgb(131, 131, 131)";
-    }
-
-    theriac.onmouseover = function() {
-        regeneration.style.background = 'yellow';
-        sustaining.style.background = 'yellow';
-    }
-
-    theriac.onmouseleave = function() {
-        regeneration.style.background = "rgb(131, 131, 131)";
-        sustaining.style.background = "rgb(131, 131, 131)";
-    }
-
-    torrid.onmouseover = function() {
-        fire_resistance.style.background = 'yellow';
-        balance.style.background = 'yellow';
-    }
-
-    torrid.onmouseleave = function() {
-        fire_resistance.style.background = "rgb(131, 131, 131)";
-        balance.style.background = "rgb(131, 131, 131)";
-    }
-
-    vigor.onmouseover = function() {
-        resistance.style.background = 'yellow';
-        brawn.style.background = 'yellow';
-    }
-
-    vigor.onmouseleave = function() {
-        resistance.style.background = "rgb(131, 131, 131)";
-        brawn.style.background = "rgb(131, 131, 131)";
-    }
-
-    virulent.onmouseover = function() {
-        affluence.style.background = 'yellow';
-        regeneration.style.background = 'yellow';
-    }
-
-    virulent.onmouseleave = function() {
-        affluence.style.background = "rgb(131, 131, 131)";
-        regeneration.style.background = "rgb(131, 131, 131)";
-    }
-
-    abate.onclick = function() {
-        if (clickedBerries[0]) {
-            clickedBerries[0] = 0;
-            abate.style.background = "rgb(233, 233, 233)";
+    /*Iterate through the map and create event handlers for each action*/
+    berry_lightups.forEach((value, key) => {
+        let berry_elem = document.getElementById(key);
+        console.log(berry_elem);
+        berry_elem.onmouseover = function () {panel_lightup(value, "yellow")};
+        berry_elem.onmouseleave = function () {panel_lightup(value, "rgb(131, 131, 131)")};
+        berry_elem.onclick = function () {berry_click(berry_elem, potion_panel_objs)};
+    })
+    function panel_lightup(panels, color) {
+        console.log(panels);
+        for(let panel of panels){
+            // Check if panel has been clicked and if not, change background color
+            let obj = potion_panel_objs.find(obj => obj.panel === panel);
+            if(!obj.clicked){
+                panel.style.background = color;
+            }
         }
-        else {
-            clickedBerries[0] = 1;
-            abate.style.background = 'lightgreen';
+    }
+
+    function berry_click(berry_button, potion_panel_objs) {
+        // If the button background isn't lightgreen, set it to lightgreen.
+        // Otherwise, set it to rgb(233, 233, 233).
+        if (berry_button.style.background != "lightgreen") {
+            berry_button.style.background = "lightgreen";
+        } else {
+            berry_button.style.background = "rgb(233, 233, 233)";
         }
 
+        for (let i = 0; i < potion_panel_objs.length; i++) {
+            if ((potion_panel_objs[i].berry1).style.background == "lightgreen" && (potion_panel_objs[i].berry2).style.background == "lightgreen") {
+                potion_panel_objs[i].panel.style.background = "lightgreen";
+                potion_panel_objs[i].clicked = true; // Mark panel as clicked
+            }
+            else {
+                potion_panel_objs[i].panel.style.background = "rgb(131, 131, 131)";
+                potion_panel_objs[i].clicked = false; // Mark panel as not clicked
+            }
+        }
+    }
+
+    function potion_panel_obj(panel, berry1, berry2) {
+        this.panel = panel;
+        this.berry1 = document.getElementById(berry1);
+        this.berry2 = document.getElementById(berry2);
     }
 })
